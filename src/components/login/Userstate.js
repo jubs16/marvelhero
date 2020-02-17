@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import fire from "../config/Fire";
+import fire from "../../config/Fire";
 import Home from "./Home";
 import Login from "./Login";
+import UserForm from "../signup/UserForm";
 
 export default class Userstate extends Component {
   constructor(props) {
@@ -52,25 +53,34 @@ export default class Userstate extends Component {
   //create a new user and push to firebase
   signupHandler = e => {
     e.preventDefault();
-    fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then((u)=>{
-    }).then((u) => {console.log(u)}).catch((err)=> {
-        console.log(err)
-    })
-  }
+    fire
+      .auth()
+      .createUserWithEmailAndPassword(this.state.email, this.state.password)
+      .then(u => {})
+      .then(u => {
+        console.log(u);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
 
   render() {
     const { email, password, error } = this.state;
     const values = { email, password, error };
     return (
       <div>
-        {(this.state.user) ? (
+        {this.state.user ? (
           <Home />
         ) : (
-          <Login
-            handleChange={this.handleChange}
-            values={values}
-            login={this.loginHandler}
-          />
+          <React.Fragment>
+            <Login
+              handleChange={this.handleChange}
+              values={values}
+              login={this.loginHandler}
+            />
+            <UserForm />
+          </React.Fragment>
         )}
       </div>
     );

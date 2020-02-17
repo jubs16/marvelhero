@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import AppBar from 'material-ui/AppBar'
 
 export default class Success extends Component {
@@ -13,20 +13,15 @@ export default class Success extends Component {
         this.props.prevStep();
     }
     render() {
-        const { values: {  firstName, lastName, email, designation, city }} = this.props;
+        const { values } = this.props;
         return (
            <MuiThemeProvider>
                <React.Fragment>
-                <h1> Thanks for Registration </h1>                                                    
+               <AppBar title="User Register Success"/>
+                <h3>{values.firstname}</h3>
                </React.Fragment>
            </MuiThemeProvider>
         )
     }
 }
 
-const styles = {
-    button: {
-        margin: 15,
-        pr: 4
-    }
-}

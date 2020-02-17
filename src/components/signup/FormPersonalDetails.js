@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import AppBar from 'material-ui/AppBar'
 import TextField from 'material-ui/TextField'
-import RaisedButtonButton from 'material-ui/RaisedButton'
+import RaisedButton from 'material-ui/RaisedButton'
 
 export default class FormPersonalDetails extends Component {
     continue = e => {
@@ -35,13 +35,13 @@ export default class FormPersonalDetails extends Component {
                    />
                    <br />  
                    <br />
-                   <RaisedButtonButton 
+                   <RaisedButton 
                     label="Continue"
                     primary={true}
                     style={styles.button}
                     onClick={this.continue}
                    />  
-                   <RaisedButtonButton 
+                   <RaisedButton 
                     label="Back"
                     primary={false}
                     style={styles.button}

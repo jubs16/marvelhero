@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import AppBar from "material-ui/AppBar";
-import RaisedButtonButton from "material-ui/RaisedButton";
-import fire from "../config/Fire";
+import RaisedButton from "material-ui/RaisedButton";
+import fire from "../../config/Fire";
 
 export default class Home extends Component {
   constructor(props) {
     super();
     this.logout = this.logout.bind(this);
+    this.state = {userData: ""}
   }
   // logout user
   logout = () => {
@@ -23,15 +24,22 @@ export default class Home extends Component {
       });
   };
 
+  componentDidMount() {
+    fire.auth().onAuthStateChanged(user => {
+      this.setState({ user: user.email});
+    });
+  }
+
+
   render() {
     return (
       <MuiThemeProvider>
         <React.Fragment>
           <AppBar title="Your Logged in" />
-          <h1>Welcome on Board : {this.props.email}</h1>
+          <h1>Welcome on Board : {this.state.user}</h1>
           <br />
           <br />
-          <RaisedButtonButton
+          <RaisedButton
             label="Logout"
             primary={true}
             style={styles.button}

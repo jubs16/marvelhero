@@ -1,16 +1,17 @@
 import React, { Component } from 'react'
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import AppBar from "material-ui/AppBar";
+import RaisedButton from "material-ui/RaisedButton";
+import TextField from "material-ui/TextField";
 
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import AppBar from 'material-ui/AppBar'
-import TextField from 'material-ui/TextField'
-import RaisedButtonButton from 'material-ui/RaisedButton'
+
 
 export default class login extends Component {
      
     render() {
         const { values, handleChange } = this.props;
         return (
-           <MuiThemeProvider>
+           <MuiThemeProvider >
                <React.Fragment>
                    <AppBar title="Login with your Personal Details"/>
                    <TextField 
@@ -29,7 +30,7 @@ export default class login extends Component {
                    <br />  
                    <p style={styles.alert}>{values.error}</p>
                    <br />
-                   <RaisedButtonButton 
+                   <RaisedButton 
                     label="LOGIN"
                     primary={true}
                     style={styles.button}
