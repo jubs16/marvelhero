@@ -5,14 +5,18 @@ import Confirm from "./Confirm";
 import Success from "./Success";
 
 class UserForm extends Component {
-  state = {
+  constructor(props) {
+    super(props);
+  this.state = {
     step: 1,
     firstName: "",
     lastName: "",
     email: "",
+    password: "",
     designation: "",
     city: ""
   };
+}
 
   // Proceed to next step
   nextStep = () => {
@@ -37,8 +41,8 @@ class UserForm extends Component {
 
   render() {
     const { step } = this.state;
-    const { firstName, lastName, email, designation, city } = this.state;
-    const values = { firstName, lastName, email, designation, city };
+    const { firstName, lastName, email, password, designation, city } = this.state;
+    const values = { firstName, lastName, email, password, designation, city };
 
     switch (step) {
       case 1:
@@ -67,7 +71,13 @@ class UserForm extends Component {
           />
         );
       case 4:
-        return <Success />;
+        return (
+          <Success 
+            nextStep={this.nextStep} 
+            signupHandler={this.signupHandler}
+            values={values} 
+            />
+        );
       default:
         return <h1>default</h1>;
     }

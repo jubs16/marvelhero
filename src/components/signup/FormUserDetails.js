@@ -36,6 +36,14 @@ export default class FormUserDetails extends Component {
                     onChange={handleChange('email')}
                     defaultValue={values.email}
                    />
+                    <br />
+                    <TextField 
+                    hintText="Password"
+                    floatingLabelText="Password"
+                    type="password"
+                    onChange={handleChange('password')}
+                    defaultValue={values.password}
+                   />
                    <br />  
                    <br />
                    <RaisedButton 
