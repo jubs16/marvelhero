@@ -60,7 +60,7 @@ class Comics extends Component {
 
   async componentWillMount() {
     const url =
-      "https://gateway.marvel.com:443/v1/public/comics?title=deadpool&apikey=13aeb9a3b4ec92bd14917efeb55b54f5";
+      "https://gateway.marvel.com:443/v1/public/comics?title=deadpool&apikey=YourKey";
     const response = await fetch(url);
     const data = await response.json();
     this.setState({ comics: data.data.results, loading: false });
