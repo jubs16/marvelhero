@@ -7,14 +7,7 @@ import "firebase/auth";
 import "firebase/firestore";
 
 const Config = {
-    apiKey: "AIzaSyAO2cz1VAL4MEcgz1YCufBznJ6E3EJTbOc",
-    authDomain: "login-marvelhero.firebaseapp.com",
-    databaseURL: "https://login-marvelhero.firebaseio.com",
-    projectId: "login-marvelhero",
-    storageBucket: "login-marvelhero.appspot.com",
-    messagingSenderId: "232490016458",
-    appId: "1:232490016458:web:e8e739bb54949783685e33",
-    measurementId: "G-0HH9N20HKB"
+    apiKey: // your firbase config
   };
 
   const fire = firebase.initializeApp(Config)
